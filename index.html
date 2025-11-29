@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KOUBIYA'S FERM — Accueil</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <img src="logo.png" alt="KOUBIYA'S logo">
+        <div>
+          <h1>KOUBIYA'S FERM</h1>
+          <div style="color:var(--muted);font-size:13px">Vente de bétail — Prix unitaire : <strong class="badge">450 000 FCFA</strong></div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Accueil</a>
+        <a href="boutique.html">Boutique</a>
+        <a href="apropos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h2 class="lead">Bœufs de qualité — Goudali & Azawak<br>Livraison régionale • Paiement Mobile Money</h2>
+        <p>Nous sélectionnons des animaux robustes, sains et adaptés à l'embouche. Achetez en toute confiance chez KOUBIYA'S FERM.</p>
+        <div style="margin-top:12px">
+          <a class="cta" href="boutique.html">Voir la boutique</a>
+        </div>
+        <div style="margin-top:18px" class="form">
+          <h4 style="margin:0 0 8px 0;color:#fff">Commande rapide</h4>
+          <form id="quickOrder">
+            <input class="input" id="qname" placeholder="Nom complet" required>
+            <input class="input" id="qphone" placeholder="+223 96 94 70 45" required>
+            <select class="input" id="qtype">
+              <option value="goudali">Goudali</option>
+              <option value="azawak">Azawak</option>
+              <option value="croise">Monbelier</option>
+              <option value="croise">Croisé</option>
+            </select>
+            <button class="btn" type="button" id="orderBtn">Demander disponibilité</button>
+            <div id="quickResult" style="margin-top:8px;color:var(--muted)"></div>
+          </form>
+        </div>
+      </div>
+      <div>
+        <div class="slider" id="mainSlider">
+          <div class="slide active"><img src="goudali.png" alt="Goudali"></div>
+          <div class="slide"><img src="azawak.png" alt="Azawak"></div>
+          <div class="slide"><img src="goudali.png" alt="Elevage"></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h3 style="color:#fff">Nos produits populaires</h3>
+      <div class="grid">
+        <div class="card">
+          <img src="goudali.png" alt="">
+          <h3>Goudali sélection</h3>
+          <div class="price">450 000 FCFA</div>
+          <p style="color:var(--muted);font-size:13px">Jeune bœuf robuste, idéal pour embouche (200-300 kg à l'achat selon disponibilité).</p>
+        </div>
+        <div class="card">
+          <img src="azawak.png" alt="">
+          <h3>Azawak robuste</h3>
+          <div class="price">450 000 FCFA</div>
+          <p style="color:var(--muted);font-size:13px">Race Azawak, excellente rusticité et croissance.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div style="margin-top:18px">Contact : <strong>Moov Money +223 96 94 70 45</strong> — WhatsApp : <a href="https://wa.me/22396947045" style="color:var(--gold)">Envoyer message</a></div>
+      <small>© KOUBIYA'S FERM</small>
+    </footer>
+  </div>
+
+<script>
+// Simple slider
+let slides = document.querySelectorAll('.slide'), idx=0;
+setInterval(function(){ slides[idx].classList.remove('active'); idx = (idx+1)%slides.length; slides[idx].classList.add('active'); }, 4000);
+
+// Quick order simulation
+document.getElementById('orderBtn').addEventListener('click', function(){
+  var name = document.getElementById('qname').value || 'Client';
+  document.getElementById('quickResult').textContent = 'Merci ' + name + ' — nous vous contacterons bientôt au ' + (document.getElementById('qphone').value || '');
+});
+</script>
+</body>
+</html>
